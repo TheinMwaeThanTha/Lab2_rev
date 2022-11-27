@@ -14,9 +14,9 @@ def get_user_input():
 def main():
     display_main_menu()
     list = get_user_input()
-    Tavg = calc_average_temperature(list)
-    print(Tavg)
+    calc_average_temperature(list)
     calc_min_max_temperature(list)
+    calc_median_temperature(list)
 
 def calc_average_temperature(input):
     count = 0
@@ -26,7 +26,7 @@ def calc_average_temperature(input):
     for k in input:
         total = total + k
     average = total / count
-    return average
+    print("The average is = " + str(average))
 
 def calc_min_max_temperature(input):
     biggest = smallest = input[0]
@@ -38,6 +38,20 @@ def calc_min_max_temperature(input):
             smallest = k
     print("The biggest num is = " + str(biggest))
     print("The smallest num is = " + str(smallest))
+
+
+def calc_median_temperature(input):
+    n = len(input)
+    input.sort()
+    print(input)
+    count = 0
+    if n % 2 == 0 :
+        median1 = input[n//2]
+        median2 = input[n//2 - 1]
+        median = (median1 + median2)/2
+    else :
+        median = input[n//2]
+    print("The median is: " + str(median))
 
 
 
